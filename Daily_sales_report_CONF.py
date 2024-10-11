@@ -5,8 +5,8 @@ import streamlit as st
 import pandas as pd
 
 # Example app
-st.title("Single CSV File Processor")
-st.write("This web app processes a sales CSV file.")
+st.title("Conf sales table cleaner")
+st.write("This web app cleans the sales data from Conf.")
 
 # Upload the CSV file
 uploaded_file = st.file_uploader("Choose the CSV file (media.csv)", type="csv")
