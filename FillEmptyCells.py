@@ -1,32 +1,47 @@
+import pandas as pd
 import streamlit as st
 
 # Example app
-st.title("Fill Empty Cells")
+st.title("Fill Missing Values in Selected Columns")
 st.write("Fills out empty cells between two cells with a value based on the top cell value")
 
-import pandas as pd
+# File uploader for users to upload the CSV file
+uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
-# Read the CSV file
-df = pd.read_csv('sales.csv')
+# Process the file if it is uploaded
+if uploaded_file is not None:
+    # Read the CSV file
+    df = pd.read_csv(uploaded_file)
 
-# Identify columns with missing values
-columns_with_nan = [col for col in df.columns if df[col].isnull().any()]
+    # Identify columns with missing values
+    columns_with_nan = [col for col in df.columns if df[col].isnull().any()]
 
-# Display columns with missing values and ask the user which ones to fill
-if columns_with_nan:
-    print("The following columns have missing values:")
-    for i, col in enumerate(columns_with_nan, 1):
-        print(f"{i}. {col}")
-    
-    # Prompt user to enter column numbers to fill, separated by commas
-    selected_columns = input("Enter the numbers of the columns you want to fill (e.g., '1,3'): ")
-    selected_columns = [columns_with_nan[int(i)-1] for i in selected_columns.split(",")]
+    # Display columns with missing values and ask the user which ones to fill
+    if columns_with_nan:
+        st.write("The following columns have missing values:")
+        for i, col in enumerate(columns_with_nan, 1):
+            st.write(f"{i}. {col}")
 
-    # Fill missing values in the selected columns
-    for col in selected_columns:
-        df[col] = df[col].fillna(method='ffill')
+        # Let user select columns to fill
+        selected_columns = st.multiselect("Select the columns you want to fill", options=columns_with_nan)
 
-# Export the modified dataframe to a new CSV file
-df.to_csv('output_file.csv', index=False)
+        # Fill missing values in the selected columns
+        for col in selected_columns:
+            df[col] = df[col].fillna(method='ffill')
 
-print("Processing complete. Output saved as 'output_file.csv'")
+        # Display the processed dataframe
+        st.write("Processed DataFrame:", df)
+
+        # Provide a download button for the modified file
+        csv = df.to_csv(index=False)
+        st.download_button(
+            label="Download modified CSV",
+            data=csv,
+            file_name="output_file.csv",
+            mime="text/csv"
+        )
+
+    else:
+        st.write("No columns with missing values were found in the uploaded file.")
+else:
+    st.write("Please upload a CSV file to begin processing.")
