@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Example app
-st.title("Fill Missing Values in Selected Columns")
+st.title("Fill Missing Values in Selected Columns and Add Profit Centers")
 st.write("Fills out empty cells between two cells with a value based on the top cell value")
 
 # File uploader for users to upload the CSV file
