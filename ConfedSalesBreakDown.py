@@ -72,9 +72,15 @@ if uploaded_file is not None:
         # Display the final DataFrame
         st.write(df)
 
-        # Step 10: Save the modified DataFrame to a new CSV file
-        df.to_csv('Brands.csv', index=False)
-        st.success("CSV file 'Brands.csv' has been created successfully with the specified column order!")
+        # Step 10: Convert the modified DataFrame to CSV and make it downloadable
+        csv = df.to_csv(index=False).encode('utf-8')
+        
+        st.download_button(
+            label="Download CSV file",
+            data=csv,
+            file_name="Brands.csv",
+            mime="text/csv"
+        )
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
