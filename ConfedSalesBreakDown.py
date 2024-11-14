@@ -9,8 +9,8 @@ st.title("Conf sales break down")
 st.write("This web app breaks down the sales from Conf.")
 import pandas as pd
 
-# Step 1: Load the CSV file, specifying low_memory=False to avoid dtype warnings
-df = pd.read_csv('sales.csv', low_memory=False)
+# Upload the CSV file
+uploaded_file = st.file_uploader("Choose the CSV file (sales.csv)", type="csv")
 
 # Step 2: Fill empty spaces with the value from the cell above in each column
 df.ffill(inplace=True)
