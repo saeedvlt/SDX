@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import streamlit as st
+import pandas as pd
+
+# Example app
+st.title("Conf sales break down")
+st.write("This web app breaks down the sales from Conf.")
 import pandas as pd
 
 # Step 1: Load the CSV file, specifying low_memory=False to avoid dtype warnings
