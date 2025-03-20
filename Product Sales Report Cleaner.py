@@ -1,5 +1,13 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 import streamlit as st
 import pandas as pd
+
+# Example app
+st.title("Product Sales Report Cleaner")
+st.write("This web app cleans the Product Sales Report for Kitchen Uwin")
+
 import os
 from openpyxl import load_workbook
 from openpyxl.styles import Border, Side
