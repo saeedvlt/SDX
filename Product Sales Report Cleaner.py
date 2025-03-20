@@ -13,8 +13,8 @@ from openpyxl.styles import Border, Side
 # Example app
 st.title("Product Sales Report Cleaner")
 st.write("This web app cleans the Product Sales Report for Kitchen Uwin")
-# Upload the CSV file
-uploaded_file = st.file_uploader("Choose the CSV file (media.csv)", type="csv")
+# Upload the Excel file
+uploaded_file = st.file_uploader("Choose the Excel file (media.xls)")
 
 
 def clean_excel():
