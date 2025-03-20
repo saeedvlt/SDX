@@ -4,13 +4,18 @@
 import streamlit as st
 import pandas as pd
 
-# Example app
-st.title("Product Sales Report Cleaner")
-st.write("This web app cleans the Product Sales Report for Kitchen Uwin")
 
 import os
 from openpyxl import load_workbook
 from openpyxl.styles import Border, Side
+
+
+# Example app
+st.title("Product Sales Report Cleaner")
+st.write("This web app cleans the Product Sales Report for Kitchen Uwin")
+# Upload the CSV file
+uploaded_file = st.file_uploader("Choose the CSV file (media.csv)", type="csv")
+
 
 def clean_excel():
     # Get the first Excel file in the directory
