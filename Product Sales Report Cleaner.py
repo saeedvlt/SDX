@@ -14,8 +14,9 @@ uploaded_file = st.file_uploader("Choose the Excel file (media.xls or media.xlsx
 def clean_excel(file):
     """Cleans the uploaded Excel file and returns a processed file in-memory."""
 
-    # Read the uploaded file
-    df = pd.read_excel(file, dtype=str, header=2)
+    # Read the uploaded file (choose correct engine)
+    engine = "xlrd" if file.name.endswith(".xls") else "openpyxl"
+    df = pd.read_excel(file, dtype=str, header=2, engine=engine)
 
     # Keep only the required columns
     required_columns = ["Description", "U O M", "Quantity"]
@@ -25,7 +26,7 @@ def clean_excel(file):
     df["Quantity"] = pd.to_numeric(df["Quantity"], errors='coerce')
 
     # Load the full data again to check for department filtering
-    df_full = pd.read_excel(file, dtype=str, header=2)
+    df_full = pd.read_excel(file, dtype=str, header=2, engine=engine)
 
     # Define allowed department values
     allowed_departments = {
@@ -38,7 +39,7 @@ def clean_excel(file):
         df = df[df_full["Department"].isin(allowed_departments)]
 
     # Get the first row (title) from the original file (row 0)
-    df_header = pd.read_excel(file, dtype=str, header=None, nrows=1)
+    df_header = pd.read_excel(file, dtype=str, header=None, nrows=1, engine=engine)
 
     # Save the cleaned data to a BytesIO stream
     output_stream = io.BytesIO()
