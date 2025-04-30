@@ -10,7 +10,7 @@ st.write("Hello, this is a daily sales cleaner web app!")
 
 # Upload the two CSV files
 uploaded_file1 = st.file_uploader("Choose the first CSV file (media.csv)", type=["csv", "CSV"], key="file1")
-uploaded_file2 = st.file_uploader("Choose the second CSV file (trove.csv)", type="csv", key="file2")
+uploaded_file2 = st.file_uploader("Choose the second CSV file (trove.csv)", type=["csv", "CSV"], key="file2")
 
 if uploaded_file1 is not None and uploaded_file2 is not None:
     # Read the CSV files
