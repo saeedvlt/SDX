@@ -9,7 +9,7 @@ st.title("Conf Sales Breakdown")
 st.write("This web app breaks down the sales from Conf.")
 
 # Step 1: Upload the CSV file
-uploaded_file = st.file_uploader("Choose the CSV file (sales.csv)", type=["csv", "CSV", "xlsx", "XLSX"])
+uploaded_file = st.file_uploader("Choose the CSV file (sales.csv)", type=["csv", "CSV"])
 
 # Only proceed if a file is uploaded
 if uploaded_file is not None:
