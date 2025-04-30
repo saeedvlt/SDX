@@ -9,7 +9,7 @@ st.title("Conf sales table cleaner")
 st.write("This web app cleans the sales data from Conf.")
 
 # Upload the CSV file
-uploaded_file = st.file_uploader("Choose the CSV file (media.csv)", type=["csv", "CSV", "xlsx", "XLSX"])
+uploaded_file = st.file_uploader("Choose the CSV file (media.csv)", type=["csv", "CSV"])
 
 if uploaded_file is not None:
     # Read the CSV file
