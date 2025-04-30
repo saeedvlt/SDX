@@ -6,7 +6,7 @@ st.title("Fill Missing Values in Selected Columns")
 st.write("Fills out empty cells between two cells with a value based on the top cell value")
 
 # File uploader for users to upload the CSV file
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+uploaded_file = st.file_uploader("Choose a CSV file", type=["csv", "CSV"])
 
 # Process the file if it is uploaded
 if uploaded_file is not None:
