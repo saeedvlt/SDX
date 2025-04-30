@@ -9,7 +9,7 @@ st.title("Sales Data Breakdown")
 st.write("This app processes and organizes sales data.")
 
 # Step 1: Upload the CSV file
-uploaded_file = st.file_uploader("Choose the CSV file (e.g., sales.csv)", type="csv")
+uploaded_file = st.file_uploader("Choose the CSV file (e.g., sales.csv)", type=["csv", "CSV"])
 
 # Only proceed if a file is uploaded
 if uploaded_file is not None:
