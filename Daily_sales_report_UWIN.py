@@ -24,8 +24,12 @@ if uploaded_file1 is not None and uploaded_file2 is not None:
     st.write(file2)
 
     # Fill empty cells in specific columns (Year, Month, Week, Day of Month, Day of Week, Terminal, Bill Type) in both files
+    columns_to_fill_file1 = ['Year', 'Month', 'Week', 'Date', 'Terminal']
+    columns_to_fill_file2 = ['Year', 'Month', 'Week', 'Date', 'Terminal', 'Bill Type']
+
+    # if there is any problems regarding day of week, replace the line 27 and 28 with the following lines which includes column "Day of Week" as well.
     columns_to_fill_file1 = ['Year', 'Month', 'Week', 'Date', 'Day of Week', 'Terminal']
-    columns_to_fill_file2 = ['Year', 'Month', 'Week', 'Date', 'Day of Week', 'Terminal', 'Bill Type']
+    columns_to_fill_file2 = ['Year', 'Month', 'Week', 'Date', 'Day of Week', 'Terminal', 'Bill Type']    
 
     file1[columns_to_fill_file1] = file1[columns_to_fill_file1].fillna(method='ffill')
     file2[columns_to_fill_file2] = file2[columns_to_fill_file2].fillna(method='ffill')
