@@ -20,13 +20,13 @@ fill_zero = st.checkbox("Fill missing items with 0 (unchecked → leave blank/Na
 if uploaded_file is not None:
     try:
         # Read CSV
-        import csv
+        import pandas as pd
+
         df = pd.read_csv(
             uploaded_file,
-            usecols=[0,1],          # only first 2 columns (A and B)
+            usecols=[0,1],          # only Column A and B
             engine="python",        # more tolerant parser
-            on_bad_lines="skip",    # ignore malformed rows
-            quoting=csv.QUOTE_NONE  # treat quotes as normal characters
+            on_bad_lines="skip"     # skip malformed rows
         )
 
 
