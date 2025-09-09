@@ -59,7 +59,8 @@ if uploaded_file1 is not None and uploaded_file2 is not None:
         'Cashier_8': 'Toldo Athletic',
         'Cashier_9': 'Croc', 'Cashier_10': 'Croc',
         'Cashier_11': 'CEI (Tim Hortons)',
-        'Cashier_13': 'CAW - Starbucks', 'Cashier_14': 'CAW - Starbucks',
+        'Cashier_12': 'CAW Market', 'Cashier_13': 'CAW Market',
+        'Cashier_14': 'CAW - Starbucks',
         'Cashier_16': 'Chatime - Leddy',
         'Cashier_15': 'Law',
         'Flip_4': 'Downtown'
