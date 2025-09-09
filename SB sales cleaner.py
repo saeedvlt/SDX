@@ -20,7 +20,15 @@ fill_zero = st.checkbox("Fill missing items with 0 (unchecked → leave blank/Na
 if uploaded_file is not None:
     try:
         # Read CSV
-        df = pd.read_csv(uploaded_file, usecols=[0,1], engine="python")
+        import csv
+        df = pd.read_csv(
+            uploaded_file,
+            usecols=[0,1],          # only first 2 columns (A and B)
+            engine="python",        # more tolerant parser
+            on_bad_lines="skip",    # ignore malformed rows
+            quoting=csv.QUOTE_NONE  # treat quotes as normal characters
+        )
+
 
         if df.shape[1] < 2:
             st.error("The uploaded CSV must have at least two columns (Column A and Column B).")
