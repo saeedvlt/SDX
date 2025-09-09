@@ -10,7 +10,7 @@ st.write("Upload a CSV. The app will look up items in column A and grab the corr
 # Items to look up
 ITEMS = [
     "Net Sales", "Tax Collected", "Total Revenue", "Total Discount",
-    "Debit", "SUBX Card", "UWIN Charge", "VISA", "MOP",
+    "Debit", "SBUX Card", "UWIN Charge", "VISA", "MOP",
     "Mastercard", "AMEX", "Check Count", "Total Collection"
 ]
 
