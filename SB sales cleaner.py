@@ -44,22 +44,22 @@ if uploaded_file is not None:
                     val = raw
                 values.append(val)
 
-            # Construct final DataFrame with blank columns C–J
+            # Construct final DataFrame with blank columns C–K
             final_df = pd.DataFrame({
-                "Item": ITEMS,   # Column A
-                "B": values,     # temporary holder for values
+                "A_Item": ITEMS,   # Column A
+                "B": values        # temp holder
             })
 
-            # Insert empty columns (C → J)
-            for col in ["C","D","E","F","G","H","I","J"]:
+            # Insert empty columns (C → K)
+            for col in ["C","D","E","F","G","H","I","J","K"]:
                 final_df[col] = ""
 
-            # Assign values to K, L, M
-            final_df["K"] = final_df["B"]         # Values
-            final_df["L"] = date.today().strftime("%Y-%m-%d")
-            final_df["M"] = "CAW - Starbucks"
+            # Assign values to L, M, N
+            final_df["L"] = final_df["B"]         # Values
+            final_df["M"] = date.today().strftime("%Y-%m-%d")
+            final_df["N"] = "CAW - Starbucks"
 
-            # Drop the helper B column
+            # Drop helper column B
             final_df = final_df.drop(columns=["B"])
 
             st.markdown("**Result table:**")
