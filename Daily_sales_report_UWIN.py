@@ -59,7 +59,7 @@ if uploaded_file1 is not None and uploaded_file2 is not None:
         'Cashier_8': 'Toldo Athletic',
         'Cashier_9': 'Croc', 'Cashier_10': 'Croc',
         'Cashier_11': 'CEI (Tim Hortons)',
-        'Cashier_12': 'CAW Market', 'Cashier_13': 'CAW Market',
+        'Cashier_12': 'Rodzik Hall', 'Cashier_13': 'Rodzik Hall',
         'Cashier_14': 'CAW - Starbucks',
         'Cashier_16': 'Chatime - Leddy',
         'Cashier_15': 'Law',
