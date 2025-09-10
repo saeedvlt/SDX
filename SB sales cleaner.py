@@ -64,7 +64,7 @@ if uploaded_file is not None:
 
             # Assign values to L, M, N
             final_df["L"] = final_df["B"]         # Values
-            final_df["M"] = date.today().strftime("%Y-%m-%d")
+            final_df["M"] = date.today().strftime("%Y-%m-%d") -1
             final_df["N"] = "CAW - Starbucks"
 
             # Drop helper column B
