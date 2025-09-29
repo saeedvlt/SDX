@@ -30,12 +30,18 @@ if uploaded_file1 is not None and uploaded_file2 is not None:
     file1[columns_to_fill_file1] = file1[columns_to_fill_file1].fillna(method='ffill')
     file2[columns_to_fill_file2] = file2[columns_to_fill_file2].fillna(method='ffill')
 
-    # Rename 'Date' to 'Day of Month' in both files
+    # Rename 'Date' to 'Day' in both files
     file1.rename(columns={'Date': 'Day'}, inplace=True)
     file2.rename(columns={'Date': 'Day'}, inplace=True)
 
     # Rename 'Media' to 'Bill Type' and 'Net' to 'Total' in file1 to match file2 for consistency
     file1.rename(columns={'Media': 'Bill Type', 'Net': 'Total'}, inplace=True)
+
+    # 🔧 Add these renames for trove.csv
+    file2.rename(columns={
+    'Customer Type': 'Bill Type',
+    'Quantity': 'Count'
+    }, inplace=True)
 
     # Concatenate the two dataframes
     common_columns = ['Bill Type', 'Terminal', 'Count', 'Year', 'Month', 'Week', 'Day', 'Day of Week']
