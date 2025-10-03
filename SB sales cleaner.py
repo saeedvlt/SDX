@@ -11,7 +11,7 @@ st.write("Upload a CSV. The app will look up items in column A and grab the corr
 ITEMS = [
     "Net Sales", "Tax Collected", "Total Revenue", "Total Discounts",
     "Debit", "SBUX Card", "UWIN Charge", "VISA", "MOP",
-    "Mastercard", "AMEX", "Check Count", "Total Collections", "Service Charges", "Campus card"
+    "Mastercard", "AMEX", "Check Count", "Total Collections", "Service Charges", "Campus card", "Non-Revenue Total"
 ]
 
 uploaded_file = st.file_uploader("Upload CSV file (must contain at least two columns)", type=["csv"])
